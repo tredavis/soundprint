@@ -1,0 +1,32 @@
+﻿
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="SoundPrint">
+<head>
+    <title>Home Page</title>
+</head>
+<body ng-controller="SpotifyController">
+    <h1>{{homeGreeting}}</h1>
+    <h3>{{spotifyApi}}</h3>
+
+    <div>
+        <input class="form-control" ng-model="input" placeholder="Search Here" />
+        <button ng-click="spotifyButton()" class="btn btn-success"> Search Artists</button>
+        <button  ng-click="spotifyAuth()" class="btn btn-info"> Authorization Call</button>
+        <button ng-click="spotifyCurrentList()" class="btn btn-danger"> Get Current Users List</button>
+    </div>
+    <div class="col-sm-12" ng-repeat="item in band">
+        <table class="table table-striped">
+            <tr>
+                <th> Band Name</th>
+                <th> Song Title</th>
+                <th> Song Popularity (out of 100)</th>
+            </tr>
+            <tr>
+                <td>{{item.name}}</td>
+                <td>{{item.track}}</td>
+                <td>{{item.pop}}</td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
