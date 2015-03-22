@@ -49,38 +49,8 @@
     }
 
     var spotifyAuth = function () {
-        var req = {
-            method: 'GET',
-            url: authUrl,
-            header: {
-                'Access-Control-Allow-Origin': 'http://localhost:23790/'
-            }
-        }
-        $http(req).success(function (data, response) {
-            console.log(data + response);
-        }).error(function (data) {
-            console.log(data);
+        document.location = authUrl;
 
-        })
-        ;
-        //request auth from user
-        //$http('/login', function (req, res) {
-        //    var scopes = 'user-read-private user-read-email user-library-read user-read-email user-read-private user-follow-modify';
-        //    res.redirect('https://accounts.spotify.com/authorize' +
-        //      '?response_type=code' +
-        //      '&client_id=' + clientId +
-        //      (scopes ? '&scope=' + encodeURIComponent(scopes) : '') +
-        //      '&redirect_uri=' + encodeURIComponent(redirectUri));
-        //});
-        //$http({
-        //    url: 'https://api.spotify.com/v1/me',
-        //    headers: {
-        //        'Authorization': 'Bearer ' + accessToken
-        //    },
-        //    success: function(response) {
-
-        //    }
-        //});
     }
 
 
