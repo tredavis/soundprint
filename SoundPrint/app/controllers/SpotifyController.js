@@ -9,11 +9,13 @@
         });
     };
     $scope.spotifyAuth = function () {
-        return SpotifyService.spotifyAuth();
+        return SpotifyService.finalFunction();
     };
     $scope.spotifyCurrentList = function () {
         return SpotifyService.currentSavedList();
     };
+
+
 }]);
 
     
