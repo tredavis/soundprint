@@ -219,6 +219,7 @@
   <ItemGroup>
     <Content Include="app\App.js" />
     <Content Include="app\controllers\SpotifyController.js" />
+    <Content Include="app\services\oAuthService.js" />
     <Content Include="app\services\SpotifyService.js" />
     <Content Include="app\views\home.html" />
     <Content Include="Areas\HelpPage\HelpPage.css" />

@@ -57,7 +57,7 @@
 
 
     var spotifyAuth = function () {
-        console.log('spotifyAut');
+        console.log('spotifyAuth');
         document.location = authUrl;
 
     }
@@ -103,8 +103,9 @@
 
     var finalFunction = function () {
         console.log('Final Function');
+        spotifyAuth();
         var args = parseArgs();
-
+        console.log('Final Function');
         if ('access_token' in args) {
             accessToken = args['access_token'];
             $("#go").hide();
@@ -128,6 +129,7 @@
             $("#go").show();
             $("#go").on('click', function () {
                 spotifyAuth();
+                console.log('Final Function');
             });
         }
     };
