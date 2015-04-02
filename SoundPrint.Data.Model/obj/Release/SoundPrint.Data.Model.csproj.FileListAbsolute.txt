@@ -12,3 +12,17 @@ C:\Users\Owner\Documents\Visual Studio 2013\Projects\SoundPrint\SoundPrint.Data.
 C:\Users\Owner\Documents\Visual Studio 2013\Projects\SoundPrint\SoundPrint.Data.Model\obj\Release\SoundPrint.Data.Model.csprojResolveAssemblyReference.cache
 C:\Users\Owner\Documents\Visual Studio 2013\Projects\SoundPrint\SoundPrint.Data.Model\obj\Release\SoundPrint.Data.Model.dll
 C:\Users\Owner\Documents\Visual Studio 2013\Projects\SoundPrint\SoundPrint.Data.Model\obj\Release\SoundPrint.Data.Model.pdb
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data.Model\bin\Release\SoundPrint.Data.Model.dll.config
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data.Model\bin\Release\SoundPrint.Data.Model.dll
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data.Model\bin\Release\SoundPrint.Data.Model.pdb
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data.Model\bin\Release\EntityFramework.dll
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data.Model\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data.Model\bin\Release\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data.Model\bin\Release\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data.Model\bin\Release\EntityFramework.xml
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data.Model\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data.Model\bin\Release\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data.Model\bin\Release\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data.Model\obj\Release\SoundPrint.Data.Model.csprojResolveAssemblyReference.cache
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data.Model\obj\Release\SoundPrint.Data.Model.dll
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data.Model\obj\Release\SoundPrint.Data.Model.pdb

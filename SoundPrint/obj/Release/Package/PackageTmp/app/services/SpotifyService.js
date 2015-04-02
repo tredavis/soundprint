@@ -1,16 +1,12 @@
 ﻿SoundPrint.service('SpotifyService', ['$http', '$q', function ($http, $q) {
+    var accessToken = null;
     var spotifyDeffered = $q.defer();
     var clientId = '29a63923c6a140628abe971082d38e1a';
-    var secretKey = 'e555bcf5cf124fe699ed24898a3b8304';
     // var redirectUri = 'http://localhost:23790/';
     var redirectUri = 'http://soundprint.azurewebsites.net/';
-
     var authUrl = 'https://accounts.spotify.com/authorize?client_id=' + clientId + '&response_type=token&redirect_uri=' + encodeURIComponent(redirectUri);
-    var accessToken = 'BQB3TkKbErAYs1ledrRInZKAaeJXVH5etIeZNZTji_FSCyvLL5vFis5Onr-7lNtPUKhgaR51XYhuo5A0KxN1Fe3KfSwCXko-kffXhc1-XQlGE0i5_j58KkorbzEaJNJvSK20xuDdBZ53s3mG';
-
-    var bandArray = [];
-
     var spotifyGetSongs = function (input) {
+        var bandArray = [];
         //this is a simple search that will return the artist by revelance
         $http({ url: "https://api.spotify.com/v1/search?q=" + input + "&type=track,artist&market=US" }).success(function (data) {
             //   console.log(data);
@@ -34,27 +30,117 @@
 
         return spotifyDeffered.promise;
     }
-
-    var getCurrentUsersPlaylist = function () {
+    var callSpotify = function (url, data, callback) {
         $http({
-            url: 'https://api.spotify.com/v1/tracks?market=ES',
+            url: url,
+            data: data,
             headers: {
                 'Authorization': 'Bearer ' + accessToken
             }
         }).success(function (data) {
-            console.log(data);
+            callback(data);
         }).error(function (data) {
-            console.log('the call failed');
+            callback('the call failed');
         });
     }
+    //Used in the last function which contains jQuery
+    var currentUserProfile = function (callback) {
+        var url = 'https://api.spotify.com/v1/me';
+        callSpotify(url, null, callback);
+    }
+    //Used in the last function which contains jQuery
+    var savedTracks = function (callback) {
+        var url = 'https://api.spotify.com/v1/me/tracks';
+        callSpotify(url, {}, callback);
+    }
+    //Calling to spotify API will pass in 3 parameters
+
 
     var spotifyAuth = function () {
+        console.log('spotifyAuth');
         document.location = authUrl;
 
     }
+    // not my code **********************************************************************//
+
+    function parseArgs() {
+        console.log('Parse Args');
+        var hash = location.hash.replace(/#/g, '');
+        var all = hash.split('&');
+        var args = {};
+        console.log('all' + ' ' + '=' + all )
+        _.each(all, function (keyvalue) {
+            var kv = keyvalue.split('=');
+            var key = kv[0];
+            var val = kv[1];
+            args[key] = val;
+        });
+        return args;
+    }
+    function showTracks(tracks) {
+        console.log('Show Tracks');
+        var list = $("#item-list");
+
+        console.log('show tracks', tracks);
+        if (tracks.offset == 0) {
+            $("#main").show();
+            $("#intro").hide();
+            $("#item-list").empty();
+            info("");
+        }
+        _.each(tracks.items, function (item) {
+            var artistName = item.track.artists[0].name;
+            var itemElement = $("<div>").text(item.track.name + ' - ' + artistName);
+            list.append(itemElement);
+        });
+
+        if (tracks.next) {
+            callSpotify(tracks.next, {}, function (tracks) {
+                showTracks(tracks);
+            });
+        }
+    }
+    //angular.element(document).ready(
+
+    var finalFunction = function () {
+        console.log('Final Function');
+        spotifyAuth();
+        var args = parseArgs();
+        console.log('Final Function');
+        if ('access_token' in args) {
+            accessToken = args['access_token'];
+            $("#go").hide();
+            info('Getting your user profile');
+            currentUserProfile(function (user) {
+                if (user) {
+                    $("#who").text(user.id);
+                    info('Getting your saved tracks');
+                    savedTracks(function (data) {
+                        if (data) {
+                            showTracks(data.tracks);
+                        } else {
+                            error("Trouble getting your saved tracks");
+                        }
+                    });
+                } else {
+                    error("Trouble getting the user profile");
+                }
+            });
+        } else {
+            $("#go").show();
+            $("#go").on('click', function () {
+                spotifyAuth();
+                console.log('Final Function');
+            });
+        }
+    };
+
+
+
     return {
         spotifyGetSongs: spotifyGetSongs,
         spotifyAuth: spotifyAuth,
-        currentSavedList: getCurrentUsersPlaylist
+        callSpotify: callSpotify,
+        finalFunction: finalFunction
     }
 }])

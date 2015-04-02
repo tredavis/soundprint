@@ -2,8 +2,8 @@
     var accessToken = null;
     var spotifyDeffered = $q.defer();
     var clientId = '29a63923c6a140628abe971082d38e1a';
-    // var redirectUri = 'http://localhost:23790/';
-    var redirectUri = 'http://soundprint.azurewebsites.net/';
+    var redirectUri = 'http://localhost:23790/';
+    // var redirectUri = 'http://soundprint.azurewebsites.net/';
     var authUrl = 'https://accounts.spotify.com/authorize?client_id=' + clientId + '&response_type=token&redirect_uri=' + encodeURIComponent(redirectUri);
     var spotifyGetSongs = function (input) {
         var bandArray = [];
@@ -31,7 +31,9 @@
         return spotifyDeffered.promise;
     }
     var callSpotify = function (url, data, callback) {
-        $http({
+        //$http({
+        //jQuery
+          $.ajax({
             url: url,
             data: data,
             headers: {
@@ -68,6 +70,7 @@
         var hash = location.hash.replace(/#/g, '');
         var all = hash.split('&');
         var args = {};
+        console.log('all' + ' ' + '=' + all )
         _.each(all, function (keyvalue) {
             var kv = keyvalue.split('=');
             var key = kv[0];

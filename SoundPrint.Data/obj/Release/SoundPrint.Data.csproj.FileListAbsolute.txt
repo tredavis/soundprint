@@ -14,3 +14,19 @@ C:\Users\Owner\Documents\Visual Studio 2013\Projects\SoundPrint\SoundPrint.Data\
 C:\Users\Owner\Documents\Visual Studio 2013\Projects\SoundPrint\SoundPrint.Data\obj\Release\SoundPrint.Data.csprojResolveAssemblyReference.cache
 C:\Users\Owner\Documents\Visual Studio 2013\Projects\SoundPrint\SoundPrint.Data\obj\Release\SoundPrint.Data.dll
 C:\Users\Owner\Documents\Visual Studio 2013\Projects\SoundPrint\SoundPrint.Data\obj\Release\SoundPrint.Data.pdb
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data\bin\Release\SoundPrint.Data.dll.config
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data\bin\Release\SoundPrint.Data.dll
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data\bin\Release\SoundPrint.Data.pdb
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data\bin\Release\EntityFramework.dll
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data\bin\Release\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data\bin\Release\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data\bin\Release\SoundPrint.Data.Model.dll
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data\bin\Release\SoundPrint.Data.Model.pdb
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data\bin\Release\EntityFramework.xml
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data\bin\Release\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data\bin\Release\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data\obj\Release\SoundPrint.Data.csprojResolveAssemblyReference.cache
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data\obj\Release\SoundPrint.Data.dll
+C:\Users\Tre\Desktop\WebProjects\soundprint\SoundPrint.Data\obj\Release\SoundPrint.Data.pdb
