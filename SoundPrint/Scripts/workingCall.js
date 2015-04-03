@@ -21,7 +21,6 @@
                 'Authorization': 'Bearer ' + accessToken
             }
         }).success(function (data) {
-            console.log(data);
             callback(data);
             document.location = '#/';
         }).error(function (data) {
@@ -42,10 +41,7 @@
     };
 
     function showTracks(tracks) {
-     //   console.log('Show Tracks');
         var list = $("#item-list");
-
-       console.log('show tracks', tracks);
         if (tracks.offset == 0) {
             $("#main").show();
             $("#intro").hide();
@@ -56,6 +52,7 @@
         _.each(tracks, function (item) {
             var artistName = item.track.artists[0].name;
             var itemElement = $("<div>").text(item.track.name + ' - ' + artistName);
+            console.log(itemElement);
             list.append(itemElement);
         });
 
