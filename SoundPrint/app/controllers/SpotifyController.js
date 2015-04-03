@@ -9,7 +9,7 @@
         });
     };
     $scope.spotifyAuth = function () {
-        return SpotifyService.finalFunction();
+        return SpotifyService.spotifyAuth();
     };
     $scope.spotifyCurrentList = function () {
         return SpotifyService.currentSavedList();

@@ -28,6 +28,7 @@ namespace SoundPrint
                "~/Scripts/angular.js",
                 "~/Scripts/angular-route.js",
                 "~/Scripts/underscore.js",
+                "~/Scripts/workingCall.js",
                 "~/app/App.js",
                 "~/app/services/SpotifyService.js",
                 "~/app/controllers/SpotifyController.js"

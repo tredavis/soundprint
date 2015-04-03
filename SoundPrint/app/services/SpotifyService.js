@@ -31,7 +31,7 @@
         return spotifyDeffered.promise;
     }
     var callSpotify = function (url, data, callback) {
-        $http({         
+        $http({
             url: url,
             data: data,
             headers: {
@@ -44,94 +44,94 @@
             callback('the call failed');
         });
     }
-    //Used in the last function which contains jQuery
-    var currentUserProfile = function (callback) {
-        var url = 'https://api.spotify.com/v1/me';
-        callSpotify(url, null, callback);
-    }
-    //Used in the last function which contains jQuery
-    var savedTracks = function (callback) {
-        var url = 'https://api.spotify.com/v1/me/tracks';
-        callSpotify(url, {}, callback);
-    }
-    //Calling to spotify API will pass in 3 parameters
+    ////Used in the last function which contains jQuery
+    //var currentUserProfile = function (callback) {
+    //    var url = 'https://api.spotify.com/v1/me';
+    //    callSpotify(url, null, callback);
+    //}
+    ////Used in the last function which contains jQuery
+    //var savedTracks = function (callback) {
+    //    var url = 'https://api.spotify.com/v1/me/tracks';
+    //    callSpotify(url, {}, callback);
+    //}
+    ////Calling to spotify API will pass in 3 parameters
 
 
-    var spotifyAuth = function () {
+    function spotifyAuth() {
         console.log('spotifyAuth');
         document.location = authUrl;
 
-    }
-    function parseArgs() {
-        console.log('Parse Args');
-        var hash = location.hash.replace(/#/g, '');
-        var all = hash.split('&');
-        var args = {};
-        console.log('all' + ' ' + '=' + all )
-        _.each(all, function (keyvalue) {
-            var kv = keyvalue.split('=');
-            var key = kv[0];
-            var val = kv[1];
-            args[key] = val;
-        });
-        return args;
-    }
-    function showTracks(tracks) {
-        console.log('Show Tracks');
-        var list = $("#item-list");
+    //}
+    //function parseArgs() {
+    //    console.log('Parse Args');
+    //    var hash = location.hash.replace(/#/g, '');
+    //    var all = hash.split('&');
+    //    var args = {};
+    //    console.log('all' + ' ' + '=' + all)
+    //    _.each(all, function (keyvalue) {
+    //        var kv = keyvalue.split('=');
+    //        var key = kv[0];
+    //        var val = kv[1];
+    //        args[key] = val;
+    //    });
+    //    return args;
+    //}
+    //function showTracks(tracks) {
+    //    console.log('Show Tracks');
+    //    var list = $("#item-list");
 
-        console.log('show tracks', tracks);
-        if (tracks.offset == 0) {
-            $("#main").show();
-            $("#intro").hide();
-            $("#item-list").empty();
-            info("");
-        }
-        _.each(tracks.items, function (item) {
-            var artistName = item.track.artists[0].name;
-            var itemElement = $("<div>").text(item.track.name + ' - ' + artistName);
-            list.append(itemElement);
-        });
+    //    console.log('show tracks', tracks);
+    //    if (tracks.offset == 0) {
+    //        $("#main").show();
+    //        $("#intro").hide();
+    //        $("#item-list").empty();
+    //        info("");
+    //    }
+    //    _.each(tracks.items, function (item) {
+    //        var artistName = item.track.artists[0].name;
+    //        var itemElement = $("<div>").text(item.track.name + ' - ' + artistName);
+    //        list.append(itemElement);
+    //    });
 
-        if (tracks.next) {
-            callSpotify(tracks.next, {}, function (tracks) {
-                showTracks(tracks);
-            });
-        }
-    }
-    //angular.element(document).ready(
+    //    if (tracks.next) {
+    //        callSpotify(tracks.next, {}, function (tracks) {
+    //            showTracks(tracks);
+    //        });
+    //    }
+    //}
+    ////angular.element(document).ready(
 
-    var finalFunction = function () {
-        console.log('Final Function');
-        spotifyAuth();
-        var args = parseArgs();
-        console.log('Final Function');
-        if ('access_token' in args) {
-            accessToken = args['access_token'];
-            $("#go").hide();
-            info('Getting your user profile');
-            currentUserProfile(function (user) {
-                if (user) {
-                    $("#who").text(user.id);
-                    info('Getting your saved tracks');
-                    savedTracks(function (data) {
-                        if (data) {
-                            showTracks(data.tracks);
-                        } else {
-                            error("Trouble getting your saved tracks");
-                        }
-                    });
-                } else {
-                    error("Trouble getting the user profile");
-                }
-            });
-        } else {
-            $("#go").show();
-            $("#go").on('click', function () {
-                spotifyAuth();
-                console.log('Final Function');
-            });
-        }
+    //var finalFunction = function () {
+    //    console.log('Final Function');
+    //    spotifyAuth();
+    //    var args = parseArgs();
+    //    console.log('Final Function');
+    //    if ('access_token' in args) {
+    //        accessToken = args['access_token'];
+    //        $("#go").hide();
+    //        info('Getting your user profile');
+    //        currentUserProfile(function (user) {
+    //            if (user) {
+    //                $("#who").text(user.id);
+    //                info('Getting your saved tracks');
+    //                savedTracks(function (data) {
+    //                    if (data) {
+    //                        showTracks(data.tracks);
+    //                    } else {
+    //                        error("Trouble getting your saved tracks");
+    //                    }
+    //                });
+    //            } else {
+    //                error("Trouble getting the user profile");
+    //            }
+    //        });
+    //    } else {
+    //        $("#go").show();
+    //        $("#go").on('click', function () {
+    //            spotifyAuth();
+    //            console.log('Final Function');
+    //        });
+    //    }
     };
 
 
@@ -139,7 +139,6 @@
     return {
         spotifyGetSongs: spotifyGetSongs,
         spotifyAuth: spotifyAuth,
-        callSpotify: callSpotify,
-        finalFunction: finalFunction
+        callSpotify: callSpotify
     }
 }])
