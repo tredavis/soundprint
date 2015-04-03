@@ -4,72 +4,31 @@
     <title>Home Page</title>
 </head>
 <body ng-controller="SpotifyController">
-    <h1>{{homeGreeting}}</h1>
-    <h3>{{spotifyApi}}</h3>
 
-    <div>
-        <input class="form-control" ng-model="input" placeholder="Search Here" />
-        <button ng-click="spotifyButton()" class="btn btn-success"> Search Artists</button>
-        <button  ng-click="spotifyAuth()" class="btn btn-info"> Authorization Call</button>
-        <!--<button ng-click="spotifyCurrentList()" class="btn btn-danger"> Get Current Users List</button>-->
-    </div>
-    <div class="col-sm-12" ng-repeat="item in band">
-        <table class="table table-striped">
-            <tr>
-                <th> Band Name</th>
-                <th> Song Title</th>
-                <th> Song Popularity (out of 100)</th>
-            </tr>
-            <tr>
-                <td>{{item.name}}</td>
-                <td>{{item.track}}</td>
-                <td>{{item.pop}}</td>
-            </tr>
-        </table>
-    </div>
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-sm-8 col-sm-offset-3">
+                <h3>{{spotifyApi}}</h3>
 
-
-    <div>
-        <!--<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html"><span>My&nbsp;Saved&nbsp;Tracks</span></a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul id="options" class="nav navbar-nav navbar-right">
-                        <li>
-                            <a class="option"
-                               href="http://musicmachinery.com/2014/06/26/fetching-my-saved-tracks-from-spotify/"
-                               id='show-about'>About</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
-        </div>-->
+           
+            <div class="col-sm-8 col-sm-offset-3">
+                <button ng-click="spotifyAuth()" class="btn btn-info btn-large">Your Saved Tracks</button>
+            </div>
+         
+        </div>
+        <div class="row clearfix">  
+            <div class="col-sm-8 col-sm-offset-3">
+                <div id="info">
 
-
-        <div id="search" class="hero-unit">
-            <div class="container">
-                <div id="intro">
-                    <h1> My Saved Tracks</h1>
-                    <p class="lead">This app demonstrates how to get the saved tracks for a user</p>
-                    <div id="search-form" class="form-inline">
-                        <span class="xform-control">
-                            <button class="btn btn-info btn-large" id='go' type="button">Show My Saved Tracks</button>
-                        </span>
-                    </div>
-                    <div id="info"> </div>
+                </div>
+                <div id="main" class="container">
+                    <h1> Saved Tracks for <span id="who"> </span></h1>
+                    <hr>
+                    <div id="item-list"> </div>
                 </div>
             </div>
         </div>
-
-
-        <div id="main" class="container">
-            <h1> Saved Tracks for <span id="who"> </span></h1>
-            <hr>
-            <div id="item-list"> </div>
-        </div>
     </div>
-
 </body>
 </html>

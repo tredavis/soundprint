@@ -1,4 +1,4 @@
-(function finalFunction () {
+(function finalFunction() {
     function error(msg) {
         info(msg);
     }
@@ -22,6 +22,7 @@
             }
         }).success(function (data) {
             console.log(data);
+            callback(data);
             document.location = '#/';
         }).error(function (data) {
             callback('the call failed');
@@ -39,19 +40,45 @@
         });
         return args;
     };
+
+    function showTracks(tracks) {
+     //   console.log('Show Tracks');
+        var list = $("#item-list");
+
+       console.log('show tracks', tracks);
+        if (tracks.offset == 0) {
+            $("#main").show();
+            $("#intro").hide();
+            $("#item-list").empty();
+            info("");
+        };
+        
+        _.each(tracks, function (item) {
+            var artistName = item.track.artists[0].name;
+            var itemElement = $("<div>").text(item.track.name + ' - ' + artistName);
+            list.append(itemElement);
+        });
+
+        if (tracks.next) {
+            callSpotify(tracks.next, {}, function (tracks) {
+                showTracks(tracks);
+            });
+        }
+    };
+
     var args = parseArgs();
     if ('access_token' in args) {
-        accessToken = args['access_token']; console.log(accessToken);
+        accessToken = args['access_token'];
         $("#go").hide();
         info('Getting your user profile');
         currentUserProfile(function (user) {
-            console.log(user);
             if (user) {   
                 $("#who").text(user.id);
                 info('Getting your saved tracks');
                 savedTracks(function (data) {
                     if (data) {
-                        showTracks(data.tracks);
+                        songList = data.items;                    
+                        showTracks(songList);
                     } else {
                         error("Trouble getting your saved tracks");
                     }
