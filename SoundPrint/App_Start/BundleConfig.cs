@@ -25,7 +25,7 @@ namespace SoundPrint
                       "~/Content/style.css",
                       "~/Content/site.css"));
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
-                "~/Scripts/jquery-1.10.2.js",
+                "~/Scripts/jquery-2.1.3.js",
                "~/Scripts/angular.js",
                 "~/Scripts/angular-route.js",
                 "~/Scripts/underscore.js",

@@ -3,7 +3,7 @@
     var spotifyDeffered = $q.defer();
     var clientId = '29a63923c6a140628abe971082d38e1a';
     var redirectUri = 'http://localhost:23790/#/';
-    // var redirectUri = 'http://soundprint.azurewebsites.net/';
+    // var redirectUri = 'http://soundprint.azurewebsites.net/#/';
     var authUrl = 'https://accounts.spotify.com/authorize?client_id=' + clientId + '&response_type=token' + '&scope=user-library-read' + '&redirect_uri=' + encodeURIComponent(redirectUri);
     var spotifyGetSongs = function (input) {
         var bandArray = [];
@@ -39,24 +39,11 @@
             }
         }).success(function (data) {
             callback(data);
-            savedTracks();
+      
         }).error(function (data) {
             callback('the call failed');
         });
     }
-    ////Used in the last function which contains jQuery
-    var currentUserProfile = function (callback) {
-        var url = 'https://api.spotify.com/v1/me';
-        callSpotify(url, null, callback);
-    }
-    //Used in the last function which contains jQuery
-    var savedTracks = function (callback) {
-        var url = 'https://api.spotify.com/v1/me/tracks';
-        callSpotify(url, {}, callback);
-    }
-    ////Calling to spotify API will pass in 3 parameters
-
-
     function spotifyAuth() {
         console.log('spotifyAuth');
         document.location = authUrl;
@@ -68,6 +55,6 @@
         spotifyGetSongs: spotifyGetSongs,
         spotifyAuth: spotifyAuth,
         callSpotify: callSpotify,
-        currentUserProfile: currentUserProfile
+     
     }
 }])

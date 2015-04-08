@@ -10,7 +10,7 @@
     }
     //Used in the last function which contains jQuery
     var savedTracks = function (callback) {
-        var url = 'https://api.spotify.com/v1/me/tracks?limit=50';
+        var url = 'https://api.spotify.com/v1/me/tracks';
         callSpotify(url, {}, callback);
     }
     function callSpotify(url, data, callback) {
@@ -21,7 +21,6 @@
                 'Authorization': 'Bearer ' + accessToken
             }
         }).success(function (data) {
-            console.log(data);
             callback(data);
             document.location = '#/';
         }).error(function (data) {
@@ -53,11 +52,11 @@
         _.each(tracks, function (item) {
             var artistName = item.track.artists[0].name;
             var itemElement = $("<div>").text(item.track.name + ' - ' + artistName);
+            console.log(itemElement);
             list.append(itemElement);
         });
 
         if (tracks.next) {
-            console.log('paradise');
             callSpotify(tracks.next, {}, function (tracks) {
                 showTracks(tracks);
             });
@@ -67,7 +66,7 @@
     var args = parseArgs();
     if ('access_token' in args) {
         accessToken = args['access_token'];
-     //   $("#go").hide();
+        $("#go").hide();
         info('Getting your user profile');
         currentUserProfile(function (user) {
             if (user) {   
@@ -75,7 +74,6 @@
                 info('Getting your saved tracks');
                 savedTracks(function (data) {
                     if (data) {
-                     
                         songList = data.items;                    
                         showTracks(songList);
                     } else {
@@ -87,9 +85,10 @@
             }
         });
     } else {
-      //  $("#go").show();
-      //  $("#go").on('click', function () {
-      //      spotifyAuth();
-      //  });
+        $("#go").show();
+        $("#go").on('click', function () {
+            spotifyAuth();
+            console.log('Final Function');
+        });
     }
 })();
